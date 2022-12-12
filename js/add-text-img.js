@@ -66,7 +66,7 @@ function DynamicText(img) {
 }
 function handleImage(e) {
     var reader = new FileReader();
-    var img = "";
+    var img = ""; 
     var src = "";
     reader.onload = function(event) {
         img = new Image();

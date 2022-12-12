@@ -63,4 +63,4 @@
     window.addEventListener("DOMContentLoaded", function () {
         new imageUpload();
     });
-})();
+})();        
