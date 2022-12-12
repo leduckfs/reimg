@@ -52,7 +52,7 @@ function DrawText() {
 function DynamicText(img) {
   document.getElementById('name').addEventListener('keyup', function() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    DrawOverlay(img);
+    DrawOverlay(img); 
     DrawText(); 
     text_title = this.value;
     ctx.fillText(text_title.toUpperCase(), 512, 960);

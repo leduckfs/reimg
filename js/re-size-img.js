@@ -20,7 +20,7 @@ $(document).ready(function() {
         
   // Set the image for the FileReader
         reader.onload = function (e) {
-          var img = document.createElement("img");
+          var img = document.createElement("img"); 
           img.src = e.target.result;
   
   // Create your canvas
