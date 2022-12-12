@@ -33,7 +33,7 @@
                 self.selector.status.innerHTML = "SUCCESS!";
             }
             
-            // Validate file size  
+            // Validate file size   
             if (file.size > this.maxSize) {
                 self.selector.status.innerHTML = "Oversize - Maxsize < 30M";
                 return;
