@@ -1,0 +1,63 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    padding: 5px;
+}
+.fileInfomation{
+    margin-top: 20px;
+    line-height: 2em;
+}
+#imageUploadInput{
+    display: none;
+}
+#imagePreview{
+    max-width: 100px;
+    max-height: 100px;
+}
+.btn{
+    display: inline-block;
+    padding: 7.5px 15px;
+    background-color: #0099cc;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin: 5px;
+}
+.btn-center{
+    display: inline-block;
+    padding: 7.5px 15px;
+    background-color: #0099cc;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin: 5px;
+    width: 100%;
+}
+
+
+.infor-img{
+    padding: 5px;
+    width: 100%;
+    border: 2px solid #0099cc;
+}
+.infor-img>p{
+    width: 100%;
+    text-align: left;
+}
+#name, #name_img{
+    outline: none;
+    border: none;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #333;
+    padding: 5px;
+    text-align: left;
+    overflow: scroll;
+}
+form>input{
+    outline: none;
+}

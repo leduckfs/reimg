@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/all-for-all.css" rel="stylesheet" type="text/css"/>
+        <link href="css/grid.css" rel="stylesheet" type="text/css"/>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> 
+        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div class="grid">
+            <div class="row">
+                <div class="l-6 m-12 c-12">
+                    <div class="row">
+                        <div class="l-6 m-12 c-12">
+                            <input type="file" class="btn" id="imageLoader"/>
+                        </div>
+                        <div class="l-6 m-12 c-12">
+                            <h4 class="btn" onclick="download_image()">Tải xuống (Mặc định 1024x1024)</h4>  
+                        </div>
+                        <div class="l-12 m-12 c-12" style="text-align: center;">
+                            <canvas id="imageCanvas" style="width:50%"></canvas> 
+                        </div> 
+                    </div>
+                    <div><img src="./img/default.jpg" id="output" style="display: none;"></div>
+                    <img src="./img/frame.png" style="display: none;" id="frame">
+                    <div class="infor-img">
+                        <p><h4>MÔ TẢ</h4><input id="name" type="text" value=""/></p>
+                        <h4 id="title_download">TÊN HÌNH ẢNH TẢI XUỐNG</h4><input type="text" id="name_img" value="">
+                        <p><h4>KÍCH THƯỚC BAN ĐẦU</h4><span id="fileInfomation_size">Chưa nhập hình ảnh</span></p>
+                        <!-- <p><h4>KÍCH THƯỚC HÌNH ẢNH TẢI XUỐNG</h4><span id="fileDown_size"></span></p> -->
+                    </div>
+                </div> 
+                <div class="l-6 m-12 c-12">
+                    <h4>THAY ĐỔI KÍCH THƯỚC HÌNH ẢNH NHẬP VÀO</h4> 
+                    <form onsubmit="return false">
+                        <div class="row">
+                            <div class="l-6 m-12 c-12">
+                                <label>CHIỀU CAO</label>
+                                <input type="number" placeholder="Nhập chiều cao" id="chieu_cao" required>
+                            </div>
+                            <div class="l-6 m-12 c-12">
+                                <label>CHIỀU RỘNG</label>
+                                <input type="number" placeholder="Nhập chiều rộng" id="chieu_rong" required> 
+                            </div>
+                            <div class="l-12 m-12 c-12" style="text-align: center;">
+                                <h4 class="btn-center" type="submit" onclick="resizeImage()">RESIZE - ẤN ĐỂ XEM REVIEW - CHUỘT PHẢI ĐỂ TẢI XUỐNG</h4>
+                                <div><img src="" id="output_img" style="width:50%"></div>
+                            </div>
+                        </div>
+                      </form>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div style="display:none">
+        <main>
+            <div class="container imageUploadContainer">
+                <img src="img/frame.png" id="imagePreview">
+                <div><img src="" id="output"></div>
+    
+                <button class="btn" id="imageUploadInputBtn">ADD IMAGE</button>
+                <button class="btn" onclick="resizeImage()">RESIZE IMAGE</button> 
+                <div class="fileInfomation">
+                    <div class="imageUpload">
+                         <div id="uploadFileStatus"></div>
+                         <input type="file" id="imageUploadInput" accept="img/*">
+                    </div>
+                    <div class="infor-img">
+                        <p>TYPE:<span id="fileInfomation_type"></span></p>
+                        <p>SIZE:<span id="fileInfomation_size"></span></p>
+                        <p>NAME FILE:<span id="fileInfomation_name"></span></p> 
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <h6 style="color: #333">Design by LeDuc</h6>
+        <script src="js/read-img.js"></script>
+        <script src="js/re-size-img.js"></script>
+        <script src="js/add-text-img.js"></script>
+    </body>
+</html>
