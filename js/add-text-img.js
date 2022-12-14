@@ -8,21 +8,22 @@ let fsize = '45px Roboto';
 var frame = document.getElementById("frame");
 var pat = ctx.createPattern(frame, "repeat");
 img.crossOrigin="anonymous"
+
 window.addEventListener('load', DrawPlaceholder)
 
 function DrawPlaceholder() {
     img.onload = function() {
-  //      DrawOverlay(img);
+        DrawOverlay(img);
         DrawText();
         DynamicText(img)
     };
-    img.src = './img/default.jpg';
+    img.src = 'https://unsplash.it/300/200/?random';
 }
-function DrawOverlay(img) {
+function DrawOverlay(img) { 
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img,(canvas.width-img.width)/2, (canvas.height-img.height)/2);
     ctx.fillStyle = pat;
-    ctx.fill(); 
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillRect(0, 0, canvas.width, canvas.height); 
 }
 function DrawText() {
         ctx.fillStyle = "#fff";
@@ -46,7 +47,7 @@ function DrawText() {
         title_download = title_download.replace(/-+/g, '-');
         title_download = title_download.replace(/^-+|-+$/g, '');
         document.getElementById("title_download").value = title_download;
-        document.getElementById("name_img").value = title_download + ".png";
+        document.getElementById("name_img").value = title_download + ".jpg";
       //  console.log(title_download)
 }
 function DynamicText(img) {
@@ -84,14 +85,15 @@ function handleImage(e) {
     reader.readAsDataURL(e.target.files[0]); 
 }
 function download_image(){
-    image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    image = canvas.toDataURL("image/jpg").replace("image/jpg", "image/octet-stream");
     var link = document.createElement('a');
-    if(document.getElementById("name_img").value != ".png"){
+    if(document.getElementById("name_img").value != ".jpg"){
         link.download = document.getElementById("name_img").value;
         link.href = image;
         link.click();
     } else alert("BẠN CHƯA NHẬP MÔ TẢ HOẶC NHẬP TÊN LỖI!");
    
   }
+
 
 
