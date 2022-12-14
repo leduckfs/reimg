@@ -1,25 +1,25 @@
-var text_title ="";
+var text_title =""; // tên file - mô tả
 var imageLoader = document.getElementById('imageLoader');
     imageLoader.addEventListener('change', handleImage, false);
 var canvas = document.getElementById('imageCanvas');
-var ctx = canvas.getContext('2d');
-var img = new Image();
-let fsize = '45px Roboto';
+var ctx = canvas.getContext("2d");
+var fsize = '45px Roboto';
 var frame = document.getElementById("frame");
 var pat = ctx.createPattern(frame, "repeat");
-img.crossOrigin="anonymous"
+const img = new Image();
 
+img.crossOrigin="anonymous";
 window.addEventListener('load', DrawPlaceholder)
-
 function DrawPlaceholder() {
     img.onload = function() {
-        DrawOverlay(img);
+        DrawOverlay(img); 
         DrawText();
-        DynamicText(img)
+        DynamicText(img);
     };
     img.src = 'https://unsplash.it/300/200/?random';
+
 }
-function DrawOverlay(img) { 
+function DrawOverlay(img) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img,(canvas.width-img.width)/2, (canvas.height-img.height)/2);
     ctx.fillStyle = pat;
@@ -37,9 +37,7 @@ function DrawText() {
           
             fsize = fsize.replace(/\d+px/, (parseInt(ctx.font.match(/\d+px/)) - 1) + "px");
         } else if (metrics<=800 && fsize_tmp<45) fsize = fsize.replace(/\d+px/, (parseInt(ctx.font.match(/\d+px/)) + 1) + "px");
-        // console.log(fsize)
-        // console.log(fsize_tmp)
-        // console.log(metrics)
+
         var title_download = text_title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         title_download = title_download.replace(/[đĐ]/g, 'd');
         title_download = title_download.replace(/([^0-9a-z-\s])/g, '');
@@ -48,7 +46,6 @@ function DrawText() {
         title_download = title_download.replace(/^-+|-+$/g, '');
         document.getElementById("title_download").value = title_download;
         document.getElementById("name_img").value = title_download + ".jpg";
-      //  console.log(title_download)
 }
 function DynamicText(img) {
   document.getElementById('name').addEventListener('keyup', function() {
@@ -66,9 +63,9 @@ function DynamicText(img) {
   });
 }
 function handleImage(e) {
-    var reader = new FileReader();
     var img = "";  
     var src = "";
+    var reader = new FileReader();
     reader.onload = function(event) {
         img = new Image();
         img.onload = function() {
@@ -94,6 +91,5 @@ function download_image(){
     } else alert("BẠN CHƯA NHẬP MÔ TẢ HOẶC NHẬP TÊN LỖI!");
    
   }
-
-
+//////////////////////
 

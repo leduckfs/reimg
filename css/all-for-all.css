@@ -26,6 +26,11 @@
     text-align: center;
     margin: 5px;
 }
+.btn:hover,
+.btn-center:hover{
+    background-color: #333;
+    color: #ffffff;
+}
 .btn-center{
     display: inline-block;
     padding: 7.5px 15px;
@@ -37,6 +42,7 @@
     margin: 5px;
     width: 100%;
 }
+
 
 
 .infor-img{
@@ -61,3 +67,32 @@
 form>input{
     outline: none;
 }
+canvas {
+    background-color: #ffffff;
+    padding: 0;
+}
+/* css drag and drop */
+
+#drop-area {
+    border: 2px dashed rgb(255, 0, 0);
+    border-radius: 20px;
+    padding: 20px;
+  }
+  #drop-area.highlight {
+    border-color: purple;
+  }
+  .my-form {
+    margin-bottom: 10px;
+  }
+  #gallery {
+    margin-top: 10px;
+  }
+  #gallery img {
+    width: 150px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  #fileElem {
+    display: none;
+  }
