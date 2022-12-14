@@ -11,7 +11,7 @@
             infoSize: document.getElementById('fileInfomation_size')
         };
         this.imageData = "";
-        this.fileTypes = ['image/png', 'image/jpeg'];
+        this.fileTypes = ['image/*'];
         this.maxSize = 30 * 1024 * 1024; // 30MB
         this.onChangeInput = function (e) {
             document.getElementById("output").src = "";
