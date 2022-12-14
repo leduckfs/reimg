@@ -76,13 +76,10 @@ canvas {
 #drop-area {
     border: 2px dashed rgb(255, 0, 0);
     border-radius: 20px;
-    padding: 20px;
+    padding: 10px;
   }
   #drop-area.highlight {
     border-color: purple;
-  }
-  .my-form {
-    margin-bottom: 10px;
   }
   #gallery {
     margin-top: 10px;
