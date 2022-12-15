@@ -17,7 +17,6 @@ function DrawPlaceholder() {
         DynamicText(img);
     };
     img.src = 'https://unsplash.it/300/200/?random';
-
 }
 function DrawOverlay(img) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
