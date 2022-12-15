@@ -2,7 +2,7 @@
     var imageUpload = function () {
         var self = this;
         this.selector = {
-            fileInput: document.getElementById('imageLoader'),
+            fileInput: document.getElementById('imageInput'),
             fileInputBtn: document.getElementById('imageUploadInputBtn'),
             imagePreview: document.getElementById('imagePreview'),
             status: document.getElementById('uploadFileStatus'),
@@ -25,7 +25,7 @@
             this.selector.infoName.innerHTML = file.name;
             this.selector.infoType.innerHTML = file.type;
             this.selector.infoSize.innerHTML = parseInt(file.size/1024) + " KB"; // in bytes
-
+         
             // Validate file type
             if (this.fileTypes.indexOf(file.type) == -1) {
                 self.selector.status.innerHTML = "ERROR!";

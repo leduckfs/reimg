@@ -1,23 +1,9 @@
-$(document).ready(function() {
-    $("#imageFile").change(function(event) {
-      var files = event.target.files;
-      var file = files[0];
-  
-      if (file) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-          document.getElementById("preview").src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-  });
   function resizeImage() {
-   var filesToUploads = document.getElementById("imageLoader").files; // imageUploadInput
+   var filesToUploads = document.getElementById("imageInput").files; // imageUploadInput
     var file = filesToUploads[0];
       if (file) {
         var reader = new FileReader();
-        
+      
   // Set the image for the FileReader
         reader.onload = function (e) {
           var img = document.createElement("img");  

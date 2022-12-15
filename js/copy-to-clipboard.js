@@ -12,3 +12,4 @@ document.onpaste = function(pasteEvent) {
       reader.readAsDataURL(blob);
     }
   }
+  ////////
