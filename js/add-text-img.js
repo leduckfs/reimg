@@ -17,7 +17,7 @@ function DrawPlaceholder() {
     };
  //   img.src = 'https://unsplash.it/400/400/?random';
     img.src ='https://unsplash.it/' + randomSize + '/' + randomSize + '/?random';
-}
+}   
 function DrawOverlay(img) {
     var frame = document.getElementById("selectFrame");
     var pat = ctx.createPattern(frame, "repeat"); // nền png không có tô màu
