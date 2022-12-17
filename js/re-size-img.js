@@ -42,7 +42,7 @@
           ctx.drawImage(img, 0, 0, width, height);
   
           dataurl = canvas.toDataURL(file.type);
-          document.getElementById("output_img").src = dataurl;
+          document.getElementById("output_resize").src = dataurl;
         };
         reader.readAsDataURL(file);
       }

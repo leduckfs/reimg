@@ -7,17 +7,18 @@ var fsize = '45px Roboto';
 var frame = document.getElementById("frame");
 var pat = ctx.createPattern(frame, "repeat"); // nền png không có tô màu
 const img = new Image();
-img.crossOrigin="anonymous";
-
+img.crossOrigin="anonymous";    
+var randomSize = Math.floor(Math.random() * 2)*100 + 300;
 window.addEventListener('load', DrawPlaceholder)
+img.src ='https://unsplash.it/' + randomSize + '/' + randomSize + '/?random';
 function DrawPlaceholder() {
     img.onload = function() {
-        DrawOverlay(img); 
+        DrawOverlay(img);
         DrawText();
-        DynamicText(img);
+        DynamicText(img)
     };
-  img.src ='https://unsplash.it/400/400/?random'
-  
+ //   img.src = 'https://unsplash.it/400/400/?random';
+    img.src ='https://unsplash.it/' + randomSize + '/' + randomSize + '/?random';
 }
 function DrawOverlay(img) {
     ctx.fillRect(0, 0, canvas.width, canvas.height); // tô nền trắng
@@ -26,10 +27,10 @@ function DrawOverlay(img) {
     ctx.fillRect(0, 0, canvas.width, canvas.height); // tô khung
 }
 function DrawText() {
-        ctx.fillStyle = "#fff";
-        ctx.textBaseline = 'middle';
-        ctx.font = fsize;
-        ctx.textAlign = "center";
+        ctx.fillStyle = "#fff"; // màu chữ
+        ctx.textBaseline = 'middle'; // vị trí chữ so với line
+        ctx.font = fsize; // kích thước
+        ctx.textAlign = "center"; // căn giữa
         var fsize_tmp = parseInt(ctx.font.slice(0,2));
         ctx.fillText(text_title.toUpperCase(), 512, 960);
         let metrics = ctx.measureText(text_title).width;
@@ -68,8 +69,6 @@ function handleImage(e) {
     reader.onload = function(event) {
         img = new Image();
         img.onload = function() {
-            ctx.fillStyle = pat; // vẽ khung
-            ctx.fillRect(0, 0, canvas.width, canvas.height); 
             canvas.width = 1024; //image.width;
             canvas.height = 1024; //image.hight;
             ctx.drawImage(img,(canvas.width-img.width)/2, (canvas.height-img.height)/2);

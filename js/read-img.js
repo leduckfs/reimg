@@ -14,7 +14,7 @@
         this.fileTypes = ['image/jpg', 'image/png'];
         this.maxSize = 30 * 1024 * 1024; // 30MB
         this.onChangeInput = function (e) {
-            document.getElementById("output").src = "";
+            // document.getElementById("output").src = "";
             // Reset file data / image preview
           //  self.selector.status.innerHTML = '';
             self.selector.imagePreview.setAttribute('src', "img/default.jpg");
