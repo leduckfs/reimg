@@ -210,4 +210,3 @@ const selectSVG = id => {
   input.addEventListener('keyup', keyup);
   input.focus();
   addPrompt(0);
-  

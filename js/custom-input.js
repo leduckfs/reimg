@@ -14,3 +14,11 @@ const buttons = document.querySelectorAll('.btn-select-file')
     block.querySelector('.btn-select-file').textContent = 'Tên tệp: ' + filename
   }
 })
+var srcFrame = document.getElementById("frame");
+var selectFrame = document.getElementById("selectFrame");
+var sFrame = document.getElementById("sFrame");
+
+// sFrame.addEventListener("change", function(event) {
+//       srcFrame.src = selectFrame.src;
+//       console.log(srcFrame.src);
+//   }, false);

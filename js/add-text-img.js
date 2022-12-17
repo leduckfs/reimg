@@ -4,8 +4,6 @@ var imageInput = document.getElementById('imageInput');
 var canvas = document.getElementById('imageCanvas');
 var ctx = canvas.getContext("2d");
 var fsize = '45px Roboto';
-var frame = document.getElementById("frame");
-var pat = ctx.createPattern(frame, "repeat"); // nền png không có tô màu
 const img = new Image();
 img.crossOrigin="anonymous";    
 var randomSize = Math.floor(Math.random() * 2)*100 + 300;
@@ -21,6 +19,8 @@ function DrawPlaceholder() {
     img.src ='https://unsplash.it/' + randomSize + '/' + randomSize + '/?random';
 }
 function DrawOverlay(img) {
+    var frame = document.getElementById("selectFrame");
+    var pat = ctx.createPattern(frame, "repeat"); // nền png không có tô màu
     ctx.fillRect(0, 0, canvas.width, canvas.height); // tô nền trắng
     ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2); // vẽ lại hình
     ctx.fillStyle = pat; // chọn kiểu khung
