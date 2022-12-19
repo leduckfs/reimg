@@ -14,14 +14,18 @@
         <div class="grid wide">
             <div class="row">
                 <div class="l-12 m-12 c-12">
-                    
                         <!-- thêm hình ảnh vào -->
                             <input type="file" class="btn" id="imageInput" accept="image/*" style="margin-top: 50px;"/> 
                               <!-- download --> 
-                            <h4 class="btn" onclick="download_image()">Tải xuống (Mặc định 1024x1024)</h4> 
+                              <h4 class="btn" onclick="download_image()">Tải xuống (Mặc định 1024x1024)</h4>
+                              <h4 class="border-box">Thay đổi kích thước tải xuống 
+                                <input type="number" placeholder="Nhập chiều cao" id="width_download" value="1024" required>
+                                <input type="number" placeholder="Nhập chiều rộng" id="height_download" value="1024" required>
+                              </h4>
+                       
                             <div class="l-12 m-12 c-12 border-box" ondrop="drop(event)" ondragover="allowDrop(event)" id="area-one" style="text-align: center;">
                                 <!-- hình ảnh vẽ lại -->
-                                <canvas id="imageCanvas" style="width:50%;" draggable="true" ondragstart="drag(event)"></canvas>
+                                <canvas id="imageCanvas" style="width:45%;" draggable="true" ondragstart="drag(event)"></canvas>
                                 <img id="selectFrame" alt="your image" width="45%" src ="./img/frame_new.png" />
                             </div> 
                              <!-- frame  -->
@@ -41,8 +45,8 @@
                 <div class="l-12 m-12 c-12">
                     <form onsubmit="return false">
                             <h4 style="margin-top: 5px;">THAY ĐỔI KÍCH THƯỚC HÌNH ẢNH NHẬP VÀO</h4>  
-                                <input type="number" placeholder="Nhập chiều cao" id="chieu_cao" required>
-                                <input type="number" placeholder="Nhập chiều rộng" id="chieu_rong" required>
+                            <input type="number" placeholder="Nhập chiều cao" id="chieu_cao" required>
+                            <input type="number" placeholder="Nhập chiều rộng" id="chieu_rong" required>
                             <div class="l-12 m-12 c-12" style="text-align: center;margin-top: 5px;">
                                 <h4 class="btn-center" type="submit" onclick="resizeImage()">RESIZE - ẤN ĐỂ XEM REVIEW - CHUỘT PHẢI ĐỂ TẢI XUỐNG</h4>
                                 <div ondrop="drop(event)" ondragover="allowDrop(event)" id="area-two"  class="border-box"><img src="" id="output_resize" style="width:50%" draggable="true" ondragstart="drag(event)"></div>
