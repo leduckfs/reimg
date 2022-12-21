@@ -40,7 +40,7 @@
           canvas.height = height;
           var ctx = canvas.getContext("2d");
           ctx.drawImage(img, 0, 0, width, height);
-  
+          
           dataurl = canvas.toDataURL(file.type);
           document.getElementById("output_resize").src = dataurl;
         };

@@ -5,9 +5,9 @@ var canvas = document.getElementById('imageCanvas');
 var ctx = canvas.getContext("2d");
 var fsize = '45px Roboto';
 const img = new Image();
-img.crossOrigin="anonymous";  
-var width_dl = 1024;
-var height_dl = 1024;
+img.crossOrigin="anonymous";
+canvas.width = document.getElementById("width_download").value
+canvas.height = document.getElementById("height_download").value  
 //var randomSize = Math.floor(Math.random() * 2)*100 + 300;
 window.addEventListener('load', DrawPlaceholder)
 //img.src ='https://unsplash.it/' + randomSize + '/' + randomSize + '/?random';
@@ -21,10 +21,8 @@ function DrawPlaceholder() {
     img.src ='https://unsplash.it/1024/1024/?random';
 }
 function DrawOverlay(img) {
-    // var width_dl = document.getElementById("width_download").value
-    // var height_dl = document.getElementById("height_download").value  
-    // canvas.width = width_dl; //image.width;
-    // canvas.height = height_dl; //image.hight;
+    var width_dl = document.getElementById("width_download").value
+    var height_dl = document.getElementById("height_download").value  
     ctx.fillRect(0, 0, width_dl,height_dl); // tô nền trắng
     ctx.drawImage(img, (width_dl-img.width)/2, (height_dl-img.height)/2); // vẽ lại hình
     var frame = document.getElementById("selectFrame");
@@ -68,16 +66,19 @@ function DynamicText(img) {
   });
 }
 function handleImage(e) {
-
     var img = "";  
     var src = "";
     var reader = new FileReader();
     reader.onload = function(event) {
         img = new Image();
         img.onload = function() {
-            canvas.width = width_dl; //image.width;
-            canvas.height = height_dl; //image.hight;
+            canvas.width =  document.getElementById("width_download").value  ; //image.width;
+            canvas.height = document.getElementById("height_download").value; //image.hight;
             ctx.drawImage(img,(canvas.width-img.width)/2, (canvas.height-img.height)/2);
+            var frame = document.getElementById("selectFrame");
+            var pat = ctx.createPattern(frame, "no-repeat"); // nền png không có tô màu
+            ctx.fillStyle = pat; // chọn kiểu khung
+            ctx.fillRect(0, 0, canvas.width, canvas.height); // tô khung
         }
         img.src = event.target.result;
         src = event.target.result;
@@ -87,6 +88,5 @@ function handleImage(e) {
     }
     reader.readAsDataURL(e.target.files[0]); 
 }
-
 //////////////////////
 
