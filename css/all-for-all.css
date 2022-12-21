@@ -59,6 +59,11 @@ html, body {
   margin-bottom: 5px;
   padding: 5px;
 }
+.border-box-line{
+  border: 2px solid #0099cc;
+  margin-bottom: 5px;
+  padding: 5px;
+}
 #name, #name_img{
     outline: none;
     border: none;
@@ -76,6 +81,7 @@ input{
 canvas {
     background-color: #ffffff!important ;
     padding: 0;
+    margin: 0;
 }
 /* css drag and drop */
 

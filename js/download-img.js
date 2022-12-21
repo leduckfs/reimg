@@ -6,6 +6,7 @@ function download_image(){
         link.download = title
         link.href = image;
         link.click();
+
     } else alert("BẠN CHƯA NHẬP MÔ TẢ HOẶC NHẬP TÊN LỖI!");
    
   }

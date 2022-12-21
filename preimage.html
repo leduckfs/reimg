@@ -18,18 +18,18 @@
                             <input type="file" class="btn" id="imageInput" accept="image/*" style="margin-top: 50px;"/> 
                               <!-- download --> 
                               <h4 class="btn" onclick="download_image()">Tải xuống (Mặc định 1024x1024)</h4>
-                              <h4 class="border-box">Thay đổi kích thước tải xuống 
+                              <h4 class="border-box-line">Thay đổi kích thước tải xuống 
                                 <input type="number" placeholder="Nhập chiều cao" id="width_download" value="1024" required>
                                 <input type="number" placeholder="Nhập chiều rộng" id="height_download" value="1024" required>
                               </h4>
                        
-                            <div class="l-12 m-12 c-12 border-box" ondrop="drop(event)" ondragover="allowDrop(event)" id="area-one" style="text-align: center;">
+                            <div class="l-12 m-12 c-12 border-box-line" style="text-align: center;">
                                 <!-- hình ảnh vẽ lại -->
-                                <canvas id="imageCanvas" style="width:45%;" draggable="true" ondragstart="drag(event)"></canvas>
-                                <img id="selectFrame" alt="your image" width="45%" src ="./img/frame_new.png" />
+                                <canvas class="border-box" id="imageCanvas" style="width:45%;" draggable="true" ondragstart="drag(event)"></canvas>
+                                <img class="border-box" id="selectFrame" alt="your image" width="45%" src ="./img/frame_new.png" />
                             </div> 
                              <!-- frame  -->
-                            <div class="file-block border-box">
+                            <div class="file-block border-box-line">
                                 <h4 class="btn-select-file btn">LỰA CHỌN KHUNG - PNG</h4>
                                 <input type="file" style="display: none;" accept="image/png" oninput="selectFrame.src=window.URL.createObjectURL(this.files[0]);console.log(selectFrame.src)" id="sFrame">
                             </div>
