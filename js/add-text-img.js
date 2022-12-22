@@ -123,6 +123,7 @@ function handleImage(e) {
     }
     reader.readAsDataURL(e.target.files[0]); 
 }
+/////////////////////////////////////
 var imgStep = 0;
 var dragStart,dragged;
 var lastX=(canvas.width-img.width)/2, lastY=(canvas.height-img.height)/2; // căn giữa
@@ -145,13 +146,11 @@ function redraw(){
     var p1 = ctx.transformedPoint(0,0);
     var p2 = ctx.transformedPoint(canvas.width,canvas.height);
     ctx.clearRect(p1.x,p1.y,p2.x-p1.x,p2.y-p1.y);
-    ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = "high";
-    ctx.save();
+    destCanvasContext.imageSmoothingEnabled = true;
+    destCanvasContext.imageSmoothingQuality = "high";
+    destCanvasContext.save();
     /// vẽ hình mới
-    ctx.restore();
-    ctx.fillRect(0, 0, canvas.width,canvas.height); // tô nền trắng
-    ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2); // vẽ lại hình
+    destCanvasContext.restore();
     // DrawOverlay(img);
     // DrawText();
     // DynamicText(img)
