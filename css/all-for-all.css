@@ -111,7 +111,6 @@ canvas {
   /* text funny */
   svg {
     top: 0px;
-    left: 0px;
     z-index: -1;
     text-align: center;
     position: absolute;
@@ -132,7 +131,7 @@ canvas {
     display: block;
     position: absolute;
     top: 5px;
-    left: 15px;
+    left: 10px;
     text-align: center;
   }
   

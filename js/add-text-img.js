@@ -23,9 +23,6 @@ var destCanvasContext = destCanvas.getContext("2d");
 var destinationImage = new Image;
 destCanvas.width = 1024;
 destCanvas.height = 1024;
-var frame = document.getElementById("selectFrame");
-var pat = destCanvasContext.createPattern(frame, "no-repeat"); // nền png không có tô màu
-var i = 0;
 function DrawPlaceholder() {
     img.onload = function() {
         DrawOverlay(img);
@@ -36,14 +33,6 @@ function DrawPlaceholder() {
 }
 
 function DrawOverlay(img) {
-    // var width_dl = document.getElementById("width_download").value
-    // var height_dl = document.getElementById("height_download").value
-
-    // var frame = document.getElementById("selectFrame");
-    // var pat = ctx.createPattern(frame, "no-repeat"); // nền png không có tô màu
-    // ctx.fillStyle = pat; // chọn kiểu khung
-    // ctx.fillRect(0, 0, width_dl, height_dl); // tô khung
-    //copy canvas by DataUrl
     ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2); // vẽ lại hình
     var sourceImageData = sourceCanvas.toDataURL("image/*");
     var destCanvasContext = destCanvas.getContext("2d");
@@ -92,29 +81,19 @@ function DynamicText(img) {
 }
 function handleImage(e) {
     var img = "";  
-    var src = "";
     var reader = new FileReader();
     reader.onload = function(event) {
         img = new Image();
         img.onload = function() {
-            canvas.width =  document.getElementById("width_download").value  ; //image.width;
-            canvas.height = document.getElementById("height_download").value; //image.hight;
             ctx.clearRect(0, 0, canvas.width, canvas.height); // tô khung
-            ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2); // vẽ lại hình
-            destCanvasContext.clearRect(0, 0, canvas.width, canvas.height); // tô khung
-            destCanvasContext.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2); // vẽ lại hình
-            // var frame = document.getElementById("selectFrame");
-            // var pat = ctx.createPattern(frame, "no-repeat"); // nền png không có tô màu
-            // ctx.fillStyle = pat; // chọn kiểu khung
-            // ctx.fillRect(0, 0, 1024, 1024); // tô khung
-            ///////////////////////////////////////////////////////////////////
-
-            ///////// sự kiện lăn chuột
-
+            DrawOverlay(img);
+            DrawText(); 
+            DynamicText(img);    
         }
 
         img.src = event.target.result;
         src = event.target.result;
+        document.getElementById('srcNew').src = img.src;
         //////////////////////////////////////////////
         // DrawOverlay(img);
         // DrawText(); 
@@ -130,6 +109,8 @@ var holder = document.querySelector('canvas');
 holder.ondragover = function(){this.className = 'hover'; return false;};
 holder.ondragend = function(){this.className = ''; return false;};
 holder.ondrop = function(e){
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // tô khung
+    DrawOverlay(img);
     this.className = '';
     e.preventDefault();
     var url = URL.createObjectURL(e.dataTransfer.files[imgStep]);
