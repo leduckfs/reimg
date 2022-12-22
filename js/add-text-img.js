@@ -86,18 +86,14 @@ function handleImage(e) {
         img = new Image();
         img.onload = function() {
             ctx.clearRect(0, 0, canvas.width, canvas.height); // tô khung
+            destCanvasContext.clearRect(0, 0, canvas.width, canvas.height); // tô khung
             DrawOverlay(img);
             DrawText(); 
-            DynamicText(img);    
+            DynamicText(img);   
         }
-
         img.src = event.target.result;
         src = event.target.result;
-        document.getElementById('srcNew').src = img.src;
-        //////////////////////////////////////////////
-        // DrawOverlay(img);
-        // DrawText(); 
-        // DynamicText(img);    
+        document.getElementById('srcNew').src = img.src; 
     }
     reader.readAsDataURL(e.target.files[0]); 
 }
@@ -179,9 +175,8 @@ function trackTransforms(ctx){
         return pt.matrixTransform(xform.inverse());
     }
 }
-//////////
-  ///////// sự kiện lăn chuột
-  canvas.addEventListener('mousedown',function(evt){
+///////// sự kiện lăn chuột
+canvas.addEventListener('mousedown',function(evt){
 	lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
 	lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
     dragStart = ctx.transformedPoint(lastX,lastY);
@@ -211,7 +206,7 @@ canvas.addEventListener('mousemove',function(evt){
     }
 },false);
 
-var scaleFactor = 1.05; // tỉ lệ thu phóng hình ảnh
+var scaleFactor = 1.1; // tỉ lệ thu phóng hình ảnh
 //////// thu phóng hình ảnh
 var zoom = function(clicks){
     DrawOverlay(img);
@@ -236,6 +231,7 @@ var handleScroll = function(evt){
 
 canvas.addEventListener('DOMMouseScroll',handleScroll,false);
 canvas.addEventListener('mousewheel',handleScroll,false);
+/////////////////
 var showF = 0;
 function showFrame(){
     if(showF == 0){

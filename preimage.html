@@ -33,9 +33,9 @@
                                 
                                 <div class = "row no-gutters">
                                     <input type="file" class="btn-center l-3" id="imageInput" accept="image/*"/> 
-                                    <h4 class="btn-center l-3" onclick="download_image()" id="download">Tải xuống (Mặc định 1024x1024)</h4>
+                                    <label class="btn-center l-3" onclick="download_image()" id="download">Tải xuống (Mặc định 1024x1024)</label>
                                     <label class="btn-center l-3" for="sFrame">Lựa chọn khung - png</label>
-                                    <h4 class="btn-center l-3" onclick="showFrame()" id="titleShowFrame">Hiển thị khung</h4>
+                                    <label class="btn-center l-3" onclick="showFrame()" id="titleShowFrame">Hiển thị khung</label>
                                 </div>
                                 <input type="file" style="display: none;" accept="image/*" id="sFrame" oninput="selectFrame.src=window.URL.createObjectURL(this.files[0]);">
                             </div>
