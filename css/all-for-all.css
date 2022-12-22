@@ -1,6 +1,7 @@
 html, body {
     font-family: 'Roboto';
     background-color: #e4e4e4;
+    scroll-behavior: smooth;
 }
 *{
     padding: 0px;
@@ -30,7 +31,10 @@ html, body {
     padding: 5px;
 }
 .btn:hover,
-.btn-center:hover{
+.btn-center:hover,
+#imageInput:hover,
+#download:hover,
+#titleShowFrame:hover{
     background-color: #333;
     color: #ffffff;
 }
@@ -39,11 +43,9 @@ html, body {
     background-color: #0099cc;
     color: #ffffff;
     cursor: pointer;
-    margin-bottom: 5px;
-    border-radius: 5px;
     text-align: center;
     width: 100%;
-    padding: 5px;
+    padding: 8px 5px 5px 5px;
 }
 .infor-img{
     width: 100%;
@@ -141,4 +143,13 @@ canvas {
   
   .text span {
     position: absolute;
+  }
+  #imageInput{
+    background-color: rgb(252, 113, 88);
+  }
+  #download{
+    background-color: rgb(0, 255, 128);
+  }
+  #titleShowFrame{
+    background-color: rgb(230, 99, 23);
   }

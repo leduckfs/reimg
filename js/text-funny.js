@@ -162,8 +162,6 @@ const selectSVG = id => {
   
   const animateLetterOut = (letter, i) => {
     TweenLite.to(letter.onScreen, 0.1, {scale: 0, opacity: 0, ease: Power2.easeIn, onComplete: () => {
-      console.log('removing');
-      console.log(letter);
       offscreenText.removeChild(letter.offScreen);
       text.removeChild(letter.onScreen);
       positionLetters();

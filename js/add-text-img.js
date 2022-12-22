@@ -34,6 +34,7 @@ function DrawPlaceholder() {
     };
     img.src ='https://unsplash.it/1024/1024/?random';
 }
+
 function DrawOverlay(img) {
     // var width_dl = document.getElementById("width_download").value
     // var height_dl = document.getElementById("height_download").value
@@ -139,18 +140,13 @@ holder.ondrop = function(e){
     }
 }
 function redraw(){
-    // xóa hình ảnh cũ
     var p1 = ctx.transformedPoint(0,0);
     var p2 = ctx.transformedPoint(canvas.width,canvas.height);
     ctx.clearRect(p1.x,p1.y,p2.x-p1.x,p2.y-p1.y);
     destCanvasContext.imageSmoothingEnabled = true;
     destCanvasContext.imageSmoothingQuality = "high";
     destCanvasContext.save();
-    /// vẽ hình mới
     destCanvasContext.restore();
-    // DrawOverlay(img);
-    // DrawText();
-    // DynamicText(img)
 }
 trackTransforms(ctx);   
 function trackTransforms(ctx){
@@ -263,12 +259,14 @@ var showF = 0;
 function showFrame(){
     if(showF == 0){
         document.getElementById('selectFrame').style.display = "";
-        document.getElementById('titleShowFrame').innerText = 'ẨN KHUNG';
+        document.getElementById('titleShowFrame').innerText = 'Ẩn khung';
         showF = 1;
+        window.scrollTo(0,500);
     } else {
         document.getElementById('selectFrame').style.display = "none";
-        document.getElementById('titleShowFrame').innerText = 'HIỂN THỊ KHUNG';
+        document.getElementById('titleShowFrame').innerText = 'Hiển thị khung';
         showF = 0;
+        window.scrollTo(0,0);
     }
 }
    
