@@ -238,12 +238,12 @@ function showFrame(){
         document.getElementById('selectFrame').style.display = "";
         document.getElementById('titleShowFrame').innerText = 'Ẩn khung';
         showF = 1;
-        window.scrollTo(0,500);
+        // window.scrollTo(0,550);
     } else {
         document.getElementById('selectFrame').style.display = "none";
         document.getElementById('titleShowFrame').innerText = 'Hiển thị khung';
         showF = 0;
-        window.scrollTo(0,0);
+        // window.scrollTo(0,0);
     }
 }
    
