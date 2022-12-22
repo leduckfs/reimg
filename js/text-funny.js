@@ -54,7 +54,7 @@ const selectSVG = id => {
   
   const resizeLetters = () => {
     textSize = width / (letters.length+2);
-    if (textSize > 30) textSize = 30;
+    if (textSize > 10) textSize = 10;
     text.style.fontSize = `${textSize}px`;
     text.style.height = `${textSize}px`;
     text.style.lineHeight = `${textSize}px`;

@@ -259,3 +259,16 @@ var handleScroll = function(evt){
 
 canvas.addEventListener('DOMMouseScroll',handleScroll,false);
 canvas.addEventListener('mousewheel',handleScroll,false);
+var showF = 0;
+function showFrame(){
+    if(showF == 0){
+        document.getElementById('selectFrame').style.display = "";
+        document.getElementById('titleShowFrame').innerText = 'ẨN KHUNG';
+        showF = 1;
+    } else {
+        document.getElementById('selectFrame').style.display = "none";
+        document.getElementById('titleShowFrame').innerText = 'HIỂN THỊ KHUNG';
+        showF = 0;
+    }
+}
+   

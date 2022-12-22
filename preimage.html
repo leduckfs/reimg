@@ -15,23 +15,25 @@
             <div class="row">
                 <div class="l-12 m-12 c-12">
                         <!-- thêm hình ảnh vào -->
-                            <input type="file" class="btn" id="imageInput" accept="image/*" style="margin-top: 50px;"/> 
+                           
                               <!-- download --> 
-                              <h4 class="btn" onclick="download_image()">Tải xuống (Mặc định 1024x1024)</h4>
-                              <h4 class="border-box-line">Thay đổi kích thước tải xuống 
+                              <h4 class="border-box-line" style="display: none;">Thay đổi kích thước tải xuống 
                                 <input type="number" placeholder="Nhập chiều cao" id="width_download" value="1024" required>
                                 <input type="number" placeholder="Nhập chiều rộng" id="height_download" value="1024" required>
                               </h4>
                        
                             <div class="l-12 m-12 c-12 border-box-line" style="text-align: center;">
                                 <!-- hình ảnh vẽ lại -->
-                                <canvas class="border-box" id="imageCanvas" style="width:30%;"></canvas>
-                                <canvas class="border-box" id="imageCanvasReview" style="width:30%;"></canvas>
-                                <img class="border-box" id="selectFrame" alt="your image" width="30%" src ="./img/frame_new.png" />
+                                <canvas class="border-box" id="imageCanvas" style="width:49%;"></canvas>
+                                <canvas class="border-box" id="imageCanvasReview" style="width:49%;"></canvas>
+                                <img class="border-box" id="selectFrame" alt="your image" width="60%" src ="./img/frame_new.png" style="display:none"/>
                             </div> 
                              <!-- frame  -->
                             <div class="file-block border-box-line">
+                                <input type="file" class="btn" id="imageInput" accept="image/*"/> 
+                                <h4 class="btn" onclick="download_image()">Tải xuống (Mặc định 1024x1024)</h4>
                                 <h4 class="btn-select-file btn">LỰA CHỌN KHUNG - PNG</h4>
+                                <h4 class="btn" onclick="showFrame()" id="titleShowFrame">HIỂN THỊ KHUNG</h4>
                                 <input type="file" style="display: none;" accept="image/png" oninput="selectFrame.src=window.URL.createObjectURL(this.files[0]);console.log(selectFrame.src)" id="sFrame">
                             </div>
                            
@@ -76,10 +78,10 @@
                 <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div> -->
                 </div>
                 <!-- <h6 style="color: #333;float: right;">Design by LeDuc</h6> -->
-                <p id="offscreen-text" class="offscreen-text"></p>
-                <p id="text" class="text"></p>
-                <svg id="svg"></svg>
-                <input type="text" class="input", id="input" style="display: none;"/>
+                    <p id="offscreen-text" class="offscreen-text"></p>
+                    <p id="text" class="text"></p>
+                    <svg id="svg"></svg>
+                    <input type="text" class="input" id="input"/>
             </div>  
         </div>
     

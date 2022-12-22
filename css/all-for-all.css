@@ -1,5 +1,6 @@
 html, body {
     font-family: 'Roboto';
+    background-color: #e4e4e4;
 }
 *{
     padding: 0px;
@@ -112,14 +113,14 @@ canvas {
     z-index: -1;
     text-align: center;
     position: absolute;
-    left: 20%;
+    left: 15px;
   }
   
   .input {
-    display: block;
-    width: 100%;
-    bottom: 0px;
-    font-size: 20px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 10px;
     outline: none;
     border: 1px solid rgb(129, 11, 11);
     color: rgb(35, 100, 138);
@@ -129,6 +130,7 @@ canvas {
     display: block;
     position: absolute;
     top: 5px;
+    left: 15px;
     text-align: center;
   }
   
