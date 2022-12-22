@@ -93,9 +93,7 @@ function DynamicText(img) {
 }
 function handleImage(e) {
     var img = "";  
-    var dragStart,dragged;
-    var lastX=(canvas.width-img.width)/2, lastY=(canvas.height-img.height)/2; // căn giữa
-
+    var src = "";
     var reader = new FileReader();
     reader.onload = function(event) {
         img = new Image();
@@ -112,61 +110,8 @@ function handleImage(e) {
             // ctx.fillRect(0, 0, 1024, 1024); // tô khung
             ///////////////////////////////////////////////////////////////////
 
-            // ///////// sự kiện lăn chuột
-            // canvas.addEventListener('mousedown',function(evt){
-            //     lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
-            //     lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
-            //     dragStart = ctx.transformedPoint(lastX,lastY);
-            //     dragged = false;
-            // },false);
-            
-            // canvas.addEventListener('mouseup',function(evt){
-            //     lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
-            //     lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
-            //     dragStart = null;
-            //     if (!dragged) zoom(evt.shiftKey ? -1 : 1 );
-            // },false);
-            
-            // ////// sự kiện di chuyển chuột
-            // canvas.addEventListener('mousemove',function(evt){
-            //     lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
-            //     lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
-            //     dragged = true;
-            //     if (dragStart){
-            //         var pt = ctx.transformedPoint(lastX,lastY);
-            //         ctx.translate(pt.x-dragStart.x,pt.y-dragStart.y);
-            //         redraw();
-            //         ctx.clearRect(0, 0, canvas.width, canvas.height); // tô khung
-            //         ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2); // vẽ lại hình
-                  
-            //     }
-            // },false);
-            
-            // var scaleFactor = 1.05; // tỉ lệ thu phóng hình ảnh
-            // //////// thu phóng hình ảnh
-            // var zoom = function(clicks){
-            //     DrawOverlay(img);
-            //     var pt = ctx.transformedPoint(lastX,lastY);
-            //     ctx.translate(pt.x,pt.y);
-            //     var factor = Math.pow(scaleFactor,clicks);
-            //     ctx.scale(factor,factor);
-            //     ctx.translate(-pt.x,-pt.y);
-            //     ctx.clearRect(0, 0, canvas.width, canvas.height); // tô khung
-            //     ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2); // vẽ lại hình
-    
-            // }
-            
-            // var handleScroll = function(evt){
-            //     DrawOverlay(img);
-            //     var delta = evt.wheelDelta ? evt.wheelDelta/40 : evt.detail ? -evt.detail : 0;
-            //     ctx.clearRect(0, 0, canvas.width, canvas.height); // tô khung
-            //     if (delta) zoom(delta);
-            //     return evt.preventDefault() && false;
-            // };
-            
-            // canvas.addEventListener('DOMMouseScroll',handleScroll,false);
-            // canvas.addEventListener('mousewheel',handleScroll,false);
-            
+            ///////// sự kiện lăn chuột
+
         }
 
         img.src = event.target.result;
@@ -181,7 +126,7 @@ function handleImage(e) {
 var imgStep = 0;
 var dragStart,dragged;
 var lastX=(canvas.width-img.width)/2, lastY=(canvas.height-img.height)/2; // căn giữa
-var holder = document.querySelector('body');
+var holder = document.querySelector('canvas');
 holder.ondragover = function(){this.className = 'hover'; return false;};
 holder.ondragend = function(){this.className = ''; return false;};
 holder.ondrop = function(e){
