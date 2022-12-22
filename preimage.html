@@ -25,8 +25,9 @@
                        
                             <div class="l-12 m-12 c-12 border-box-line" style="text-align: center;">
                                 <!-- hình ảnh vẽ lại -->
-                                <canvas class="border-box" id="imageCanvas" style="width:45%;" draggable="true" ondragstart="drag(event)"></canvas>
-                                <img class="border-box" id="selectFrame" alt="your image" width="45%" src ="./img/frame_new.png" />
+                                <canvas class="border-box" id="imageCanvas" style="width:30%;"></canvas>
+                                <canvas class="border-box" id="imageCanvasReview" style="width:30%;"></canvas>
+                                <img class="border-box" id="selectFrame" alt="your image" width="30%" src ="./img/frame_new.png" />
                             </div> 
                              <!-- frame  -->
                             <div class="file-block border-box-line">
@@ -67,7 +68,7 @@
                 <!-- remove background -->
                 
                 <!-- drag to drag -->
-                <div  style="text-align: center;" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" class="border-box"><img id="drag1" src="./img/bg.jpg" draggable="true" ondragstart="drag(event)"></div>
+                <div style="text-align: center;object-fit: cover;width: 100%;" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" class="border-box"><img style="width: 100%;" id="drag1" src="./img/bg.jpg" draggable="true" ondragstart="drag(event)"></div>
                 <!-- <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
                     <img src="./img/bg.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
                 </div>
