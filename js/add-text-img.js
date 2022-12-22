@@ -43,7 +43,6 @@ function DrawOverlay(img) {
     // ctx.fillStyle = pat; // chọn kiểu khung
     // ctx.fillRect(0, 0, width_dl, height_dl); // tô khung
     //copy canvas by DataUrl
-    ctx.clearRect(0, 0, 1024, 1024); // tô khung  
     ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2); // vẽ lại hình
     var sourceImageData = sourceCanvas.toDataURL("image/*");
     var destCanvasContext = destCanvas.getContext("2d");
@@ -80,7 +79,6 @@ function DrawText() {
 }
 function DynamicText(img) {
     document.getElementById('name').addEventListener('keyup', function() {
-    destCanvasContext.clearRect(0, 0, canvas.width, canvas.height);
     DrawOverlay(img);  
     text_title = this.value;
     destCanvasContext.fillText(text_title.toUpperCase(), 512, 960);
@@ -137,7 +135,6 @@ holder.ondrop = function(e){
     empId = e.dataTransfer.files[imgStep].name;
     img.src = url;
     img.onload = function(){
-        ctx.fillRect(0, 0, canvas.width,canvas.height); // tô nền trắng
         redraw();
     }
 }
