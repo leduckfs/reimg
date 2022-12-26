@@ -36,7 +36,7 @@ function DrawOverlay(img) {
     var frame = document.getElementById("selectFrame");
     var pat = destCanvasContext.createPattern(frame, "no-repeat"); // nền png không có tô màu
     destinationImage.onload = function(){
-        destCanvasContext.clearRect(0, 0, canvas.width, canvas.height); // xóa khung
+        destCanvasContext.fillRect(0, 0, canvas.width, canvas.height); // xóa khung
         destCanvasContext.drawImage(destinationImage, 0, 0);
         destCanvasContext.fillStyle = pat; // chọn kiểu khung
         destCanvasContext.fillRect(0, 0, 1024, 1024); // tô khung
@@ -52,6 +52,7 @@ function DrawText() {
     var fsize_tmp = parseInt(destCanvasContext.font.slice(0,2));
     destCanvasContext.fillText(text_title.toUpperCase(), 512, 960);
     var metrics = destCanvasContext.measureText(text_title).width;
+    console.log(metrics)
     if (metrics>800){
         fsize = fsize.replace(/\d+px/, (parseInt(destCanvasContext.font.match(/\d+px/)) - 1) + "px");
     } else if (metrics<=800 && fsize_tmp<45) fsize = fsize.replace(/\d+px/, (parseInt(ctx.font.match(/\d+px/)) + 1) + "px");

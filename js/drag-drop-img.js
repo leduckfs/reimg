@@ -39,9 +39,6 @@ function handleDrop(e) {
   handleFiles(files)
 }
 
-let uploadProgress = []
-let progressBar = document.getElementById('progress-bar')
-
 function handleFiles(files) {
   files = [...files]
   files.forEach(uploadFile)

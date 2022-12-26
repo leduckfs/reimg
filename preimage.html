@@ -30,7 +30,7 @@
                             </div> 
                              <!-- frame  -->
                             <div class="box-line">
-                                
+                               
                                 <div class = "row no-gutters">
                                     <input type="file" class="btn-center l-3" id="imageInput" accept="image/*"/> 
                                     <label class="btn-center l-3" onclick="download_image()" id="download">Tải xuống (Mặc định 1024x1024)</label>
@@ -47,6 +47,17 @@
                         <p><h4>MÔ TẢ</h4><input id="name" type="text" value=""/></p>
                         <h4 id="title_download">TÊN HÌNH ẢNH TẢI XUỐNG</h4><input type="text" id="name_img" value="">
                         <div class="l-12 m-12 c-12">
+                            <img id="container"/>
+                            <!-- drag and drop hình ảnh -->
+                            <label class="btn-center" for="fileElem">Chọn danh sách hình ảnh - Kéo thả hoặc chọn, có thể kéo thả lên phần chỉnh sửa </label>
+                            <div id="drop-area">
+                                <!-- <div ondrop="drop(event)" ondragover="allowDrop(event)">    -->
+                                    <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+                                    <div id="gallery" draggable="true" ondragstart="drag(event)" style="min-height:100px"></div>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                        <div class="l-12 m-12 c-12">
                             <h4 style="margin-top: 5px;">THAY ĐỔI KÍCH THƯỚC HÌNH ẢNH NHẬP VÀO</h4>  
                             <input type="number" placeholder="Nhập chiều cao" id="chieu_cao" required>
                             <input type="number" placeholder="Nhập chiều rộng" id="chieu_rong" required>
@@ -57,25 +68,7 @@
                         </div>
                     </div>
                 </div> 
-              
-                <div class="l-12 m-12 c-12">
-                <img id="container"/>
-                <!-- drag and drop hình ảnh -->
-                <label class="btn-center" for="fileElem">Chọn hình ảnh</label>
-                <div id="drop-area">
-                    <form ondrop="drop(event)" ondragover="allowDrop(event)">   
-                    <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
-                    <div id="gallery" draggable="true" ondragstart="drag(event)" style="min-height:100px"></div>
-                </div>
-                <!-- remove background -->
-                
-                <!-- drag to drag -->
-                <!-- <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                    <img src="./img/bg.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
-                </div>
-                
-                <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div> -->
-                </div>
+            
                 <!-- <h6 style="color: #333;float: right;">Design by LeDuc</h6> -->
                     <p id="offscreen-text" class="offscreen-text"></p>
                     <p id="text" class="text"></p>
