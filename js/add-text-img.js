@@ -6,41 +6,38 @@ var ctx = canvas.getContext("2d");
 var fsize = '45px Roboto';
 var img = new Image();
 img.crossOrigin="anonymous";
-canvas.width = document.getElementById("width_download").value
-canvas.height = document.getElementById("height_download").value  
-var width_dl = document.getElementById("width_download").value
-var height_dl = document.getElementById("height_download").value  
+var lastX=(canvas.width-img.width)/2, lastY=(canvas.height-img.height)/2; // căn giữa
+// var width_dl = document.getElementById("width_download").value
+// var height_dl = document.getElementById("height_download").value  
 //var randomSize = Math.floor(Math.random() * 2)*100 + 300;
 window.addEventListener('load', DrawPlaceholder)
 //img.src ='https://unsplash.it/' + randomSize + '/' + randomSize + '/?random';
 
-var sourceCanvas = document.getElementById("imageCanvas");
 var destCanvas = document.getElementById("imageCanvasReview");
-
-var sourceImageData = sourceCanvas.toDataURL("image/png");
 var destCanvasContext = destCanvas.getContext("2d");
 
 var destinationImage = new Image;
 destCanvas.width = 1024;
 destCanvas.height = 1024;
+canvas.width = 1024;
+canvas.height = 1024;
 function DrawPlaceholder() {
     img.onload = function() {
         DrawOverlay(img);
-        // DrawText();
         DynamicText(img)
     };
     img.src ='https://unsplash.it/1024/1024/?random';
 }
 
 function DrawOverlay(img) {
-    ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2); // vẽ lại hình
-    var sourceImageData = sourceCanvas.toDataURL("image/*");
+    ctx.drawImage(img, ((canvas.width-img.width)/2), ((canvas.height-img.height)/2)); // vẽ lại hình
+    var sourceImageData = canvas.toDataURL("image/*");
     var destCanvasContext = destCanvas.getContext("2d");
     var frame = document.getElementById("selectFrame");
     var pat = destCanvasContext.createPattern(frame, "no-repeat"); // nền png không có tô màu
     destinationImage.onload = function(){
-        destCanvasContext.fillRect(0, 0, canvas.width, canvas.height); // tô khung
-        destCanvasContext.drawImage(destinationImage,0,0);
+        destCanvasContext.clearRect(0, 0, canvas.width, canvas.height); // xóa khung
+        destCanvasContext.drawImage(destinationImage, 0, 0);
         destCanvasContext.fillStyle = pat; // chọn kiểu khung
         destCanvasContext.fillRect(0, 0, 1024, 1024); // tô khung
         DrawText();
@@ -80,7 +77,8 @@ function DynamicText(img) {
   });
 }
 function handleImage(e) {
-    var img = "";  
+    var img = ""; 
+    var src = ""; 
     var reader = new FileReader();
     reader.onload = function(event) {
         img = new Image();
@@ -100,12 +98,10 @@ function handleImage(e) {
 /////////////////////////////////////
 var imgStep = 0;
 var dragStart,dragged;
-var lastX=(canvas.width-img.width)/2, lastY=(canvas.height-img.height)/2; // căn giữa
 var holder = document.querySelector('canvas');
 holder.ondragover = function(){this.className = 'hover'; return false;};
 holder.ondragend = function(){this.className = ''; return false;};
 holder.ondrop = function(e){
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // tô khung
     DrawOverlay(img);
     this.className = '';
     e.preventDefault();
@@ -246,4 +242,3 @@ function showFrame(){
         // window.scrollTo(0,0);
     }
 }
-   
