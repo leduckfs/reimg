@@ -12,6 +12,6 @@ function resizeImage() {
 
   resizeCanvas.width = tmp_width;
   resizeCanvas.height = tmp_height;
-  resizeCanvasCtx.drawImage(resizeImg, 0, 0);
+  resizeCanvasCtx.drawImage(resizeImg, (canvas.width-resizeImg.width)/2, (canvas.height-resizeImg.height)/2, tmp_width, tmp_height);
 }
    
