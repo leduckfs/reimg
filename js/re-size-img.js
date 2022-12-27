@@ -14,5 +14,4 @@ function resizeImage() {
   resizeCanvas.height = tmp_height;
   resizeCanvasCtx.drawImage(resizeImg, 0, 0);
 }
-      
    

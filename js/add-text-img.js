@@ -7,8 +7,8 @@ var fsize = '45px Roboto';
 var img = new Image();
 img.crossOrigin="anonymous";
 var lastX=(canvas.width-img.width)/2, lastY=(canvas.height-img.height)/2; // căn giữa
-// var width_dl = document.getElementById("width_download").value
-// var height_dl = document.getElementById("height_download").value  
+//  var widthInput = document.getElementById("widthInput").value
+//  var heightInput = document.getElementById("heightInput").value  
 //var randomSize = Math.floor(Math.random() * 2)*100 + 300;
 window.addEventListener('load', DrawPlaceholder)
 //img.src ='https://unsplash.it/' + randomSize + '/' + randomSize + '/?random';
@@ -26,20 +26,22 @@ function DrawPlaceholder() {
         DrawOverlay(img);
         DynamicText(img)
     };
-    img.src ='https://unsplash.it/1024/1024/?random';
+    // img.src ='https://unsplash.it/1024/1024/?random';
+    img.src ='https://unsplash.it/' + canvas.width + '/' + canvas.height + '/?random';
 }
-
 function DrawOverlay(img) {
     ctx.drawImage(img, ((canvas.width-img.width)/2), ((canvas.height-img.height)/2)); // vẽ lại hình
     var sourceImageData = canvas.toDataURL("image/*");
     var destCanvasContext = destCanvas.getContext("2d");
     var frame = document.getElementById("selectFrame");
+    var color = document.getElementById("changeColorBackground").value;
     var pat = destCanvasContext.createPattern(frame, "no-repeat"); // nền png không có tô màu
     destinationImage.onload = function(){
+        destCanvasContext.fillStyle = color;
         destCanvasContext.fillRect(0, 0, canvas.width, canvas.height); // xóa khung
         destCanvasContext.drawImage(destinationImage, 0, 0);
         destCanvasContext.fillStyle = pat; // chọn kiểu khung
-        destCanvasContext.fillRect(0, 0, 1024, 1024); // tô khung
+        destCanvasContext.fillRect(0, 0, canvas.width, canvas.height); // tô khung
         DrawText();
     };
     destinationImage.src = sourceImageData;
@@ -52,7 +54,6 @@ function DrawText() {
     var fsize_tmp = parseInt(destCanvasContext.font.slice(0,2));
     destCanvasContext.fillText(text_title.toUpperCase(), 512, 960);
     var metrics = destCanvasContext.measureText(text_title).width;
-    console.log(metrics)
     if (metrics>800){
         fsize = fsize.replace(/\d+px/, (parseInt(destCanvasContext.font.match(/\d+px/)) - 1) + "px");
     } else if (metrics<=800 && fsize_tmp<45) fsize = fsize.replace(/\d+px/, (parseInt(ctx.font.match(/\d+px/)) + 1) + "px");
@@ -235,11 +236,26 @@ function showFrame(){
         document.getElementById('selectFrame').style.display = "";
         document.getElementById('titleShowFrame').innerText = 'Ẩn khung';
         showF = 1;
-        // window.scrollTo(0,550);
     } else {
         document.getElementById('selectFrame').style.display = "none";
         document.getElementById('titleShowFrame').innerText = 'Hiển thị khung';
         showF = 0;
-        // window.scrollTo(0,0);
+        // window.scrollTo(0,50);
     }
+}
+
+function changeColorBackground(){
+    var color = document.getElementById("changeColorBackground").value;
+    document.getElementById("color").style.backgroundColor = color
+    document.getElementById("colorName").innerHTML = color;
+    ctx.drawImage(img, ((canvas.width-img.width)/2), ((canvas.height-img.height)/2)); // vẽ lại hình
+    var destCanvasContext = destCanvas.getContext("2d");
+    var frame = document.getElementById("selectFrame");
+    var pat = destCanvasContext.createPattern(frame, "no-repeat"); // nền png không có tô màu
+    var destCanvasContext = destCanvas.getContext("2d");
+    destCanvasContext.fillStyle = color;
+    destCanvasContext.fillRect(0, 0, canvas.width, canvas.height); // xóa khung
+    destCanvasContext.drawImage(destinationImage, 0, 0);
+    destCanvasContext.fillStyle = pat; // chọn kiểu khung
+    destCanvasContext.fillRect(0, 0, canvas.height, canvas.height); // tô khung
 }

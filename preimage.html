@@ -15,18 +15,12 @@
             <div class="row">
                 <div class="l-12 m-12 c-12">
                         <!-- thêm hình ảnh vào -->
-                           
-                              <!-- download --> 
-                              <h4 class="border-box-line" style="display: none;">Thay đổi kích thước tải xuống 
-                                <input type="number" placeholder="Nhập chiều cao" id="width_download" value="1024" required>
-                                <input type="number" placeholder="Nhập chiều rộng" id="height_download" value="1024" required>
-                              </h4>
-                       
                             <div class="l-12 m-12 c-12 border-box-line" style="text-align: center; margin-top:45px;background-color: rgb(162, 224, 170);">
                                 <!-- hình ảnh vẽ lại -->
                                 <canvas id="imageCanvas" style="width:25%;"></canvas>
                                 <canvas id="imageCanvasReview" style="width:25%;"></canvas>
                                 <img id="selectFrame" alt="your image" width="25%" src ="./img/frame_new.png" style="display:none"/>
+                                <label ondrop="drop(event)" ondragover="allowDrop(event)" id="area-two"><canvas id="output_resize" style="width:25%;height: 300px;" draggable="true" ondragstart="drag(event)"></canvas></label>
                             </div> 
                              <!-- frame  -->
                             <div class="box-line">
@@ -36,6 +30,14 @@
                                     <label class="btn-center l-3" onclick="download_image()" id="download">Tải xuống (Mặc định 1024x1024)</label>
                                     <label class="btn-center l-3" for="sFrame">Lựa chọn khung - png</label>
                                     <label class="btn-center l-3" onclick="showFrame()" id="titleShowFrame">Hiển thị khung</label>
+                                 
+                                    <input type="color" class="btn-center l-1" value="#ffffff" oninput="changeColorBackground()" id="changeColorBackground"  style="height: 32px;">
+                                    <label class="btn-center l-1" id="color" style="background-color: #fff;"></label>
+                                    <label class="btn-center l-1" for="changeColorBackground"><label id="colorName">#ffffff</label></label>
+
+                                    <input type="number" placeholder="Cao" id="chieu_cao" oninput="resizeImage()" class="btn-center l-1" style="background-color: #fff;color: black;">
+                                    <input type="number" placeholder="Rộng" id="chieu_rong" oninput="resizeImage()" class="btn-center l-1" style="background-color: #fff;color: black;">
+                                    <h4 class="btn-center l-1" onclick="downloadResize()">Tải xuống</h4>
                                 </div>
                                 <input type="file" style="display: none;" accept="image/*" id="sFrame" oninput="selectFrame.src=window.URL.createObjectURL(this.files[0]);">
                             </div>
@@ -55,15 +57,6 @@
                                     <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
                                     <div id="gallery" draggable="true" ondragstart="drag(event)" style="min-height:100px"></div>
                                 <!-- </div> -->
-                            </div>
-                        </div>
-                        <div class="l-12 m-12 c-12">
-                            <h4 style="margin-top: 5px;">THAY ĐỔI KÍCH THƯỚC HÌNH ẢNH NHẬP VÀO</h4>  
-                            <input type="number" placeholder="Nhập chiều cao" id="chieu_cao" required>
-                            <input type="number" placeholder="Nhập chiều rộng" id="chieu_rong" required>
-                            <div class="l-12 m-12 c-12" style="text-align: center;margin-top: 5px;">
-                                <h4 class="btn-center" onclick="resizeImage()">RESIZE - ẤN ĐỂ XEM REVIEW - CHUỘT PHẢI ĐỂ TẢI XUỐNG</h4>
-                                <div ondrop="drop(event)" ondragover="allowDrop(event)" id="area-two"><canvas id="output_resize" style="width:50%" draggable="true" ondragstart="drag(event)"></canvas></div>
                             </div>
                         </div>
                     </div>
