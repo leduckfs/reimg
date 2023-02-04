@@ -26,8 +26,7 @@ function DrawPlaceholder() {
         DrawOverlay(img);
         DynamicText(img)
     };
-    img.crossOrigin="anonymous";
-     img.src ='';
+     img.src ='/img/bg.jpg';
     //img.src ='https://unsplash.it/' + canvas.width + '/' + canvas.height + '/?random';
 }
 function DrawOverlay(img) {
