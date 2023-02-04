@@ -26,8 +26,9 @@ function DrawPlaceholder() {
         DrawOverlay(img);
         DynamicText(img)
     };
-    // img.src ='https://unsplash.it/1024/1024/?random';
-    img.src ='https://unsplash.it/' + canvas.width + '/' + canvas.height + '/?random';
+    img.crossOrigin="anonymous";
+     img.src ='';
+    //img.src ='https://unsplash.it/' + canvas.width + '/' + canvas.height + '/?random';
 }
 function DrawOverlay(img) {
     ctx.drawImage(img, ((canvas.width-img.width)/2), ((canvas.height-img.height)/2)); // vẽ lại hình
