@@ -36,10 +36,10 @@
                                     <label class="btn-center l-1" id="color" style="background-color: #fff;"></label>
                                     <label class="btn-center l-1" for="changeColorBackground"><label id="colorName">#ffffff</label></label>
 
-                                    <input type="number" placeholder="Cao" id="chieu_cao" oninput="resizeImage()" class="btn-center l-1" style="background-color: #fff;color: black;">
-                                    <input type="number" placeholder="Rộng" id="chieu_rong" oninput="resizeImage()" class="btn-center l-1" style="background-color: #fff;color: black;">
+                                    <input type="number" placeholder="Cao" id="chieu_cao" oninput="resizeImage()" class="btn-center l-1" style="background-color: #fff;color: black;" value="1024">
+                                    <input type="number" placeholder="Rộng" id="chieu_rong" oninput="resizeImage()" class="btn-center l-1" style="background-color: #fff;color: black;" value="1024">
                                     <label class="btn-center l-1" onclick="downloadResize()" style="background: rgb(248, 138, 64);">Tải xuống</label>
-                                    <label class="btn-center l-3" onclick="addSticker()" id="addSticker">Thêm Sticker</label>
+                                    <!-- <label class="btn-center l-3" onclick="addSticker()" id="addSticker">Thêm Sticker</label> -->
                                 </div>
                                 <input type="file" style="display: none;" accept="image/*" id="sFrame" oninput="selectFrame.src=window.URL.createObjectURL(this.files[0]);">
                             </div>

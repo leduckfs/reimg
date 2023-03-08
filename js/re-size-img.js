@@ -1,4 +1,3 @@
-
 function resizeImage() {
   var resizeImg = new Image();
   var canvas = document.getElementById("imageCanvas");
@@ -14,4 +13,3 @@ function resizeImage() {
   resizeCanvas.height = tmp_height;
   resizeCanvasCtx.drawImage(resizeImg, (canvas.width-resizeImg.width)/2, (canvas.height-resizeImg.height)/2, tmp_width, tmp_height);
 }
-   
