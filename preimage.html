@@ -38,7 +38,8 @@
 
                                     <input type="number" placeholder="Cao" id="chieu_cao" oninput="resizeImage()" class="btn-center l-1" style="background-color: #fff;color: black;" value="1024">
                                     <input type="number" placeholder="Rộng" id="chieu_rong" oninput="resizeImage()" class="btn-center l-1" style="background-color: #fff;color: black;" value="1024">
-                                    <label class="btn-center l-1" onclick="downloadResize()" style="background: rgb(248, 138, 64);">Tải xuống</label>
+                                    <label class="btn-center l-2" onclick="download_nen()" style="background: rgb(0, 0, 0);">Tải xuống ảnh nén</label>
+                                    <label class="btn-center l-2" onclick="downloadResize()" style="background: rgb(248, 138, 64);">Tải xuống ảnh Resize</label>
                                     <!-- <label class="btn-center l-3" onclick="addSticker()" id="addSticker">Thêm Sticker</label> -->
                                 </div>
                                 <input type="file" style="display: none;" accept="image/*" id="sFrame" oninput="selectFrame.src=window.URL.createObjectURL(this.files[0]);">
@@ -83,5 +84,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/pica"></script>   
     </body>
 </html>

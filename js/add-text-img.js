@@ -27,7 +27,7 @@ function DrawPlaceholder() {
         DynamicText(img)
     };
      img.src ='img/apple-watch-series-8-starlight-aluminum-sport-loop.png';
-    //img.src ='https://unsplash.it/' + canvas.width + '/' + canvas.height + '/?random';
+    //img.src ='https://unsplash.it/' + randomSize + '/' + randomSize + '/?random';
 }
 function DrawOverlay(img) {
     ctx.drawImage(img, ((canvas.width-img.width)/2), ((canvas.height-img.height)/2)); // vẽ lại hình
